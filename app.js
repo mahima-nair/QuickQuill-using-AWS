@@ -8,7 +8,7 @@ const methodOverride = require('method-override');
 
 
 const app = express();
-const port = 5000 || process.env.PORT;
+const port = process.env.PORT || 5000;
 
 let awsConfig = {
   "region":process.env.AWS_REGION,
@@ -230,6 +230,6 @@ app.post('/delete/:id', async (req, res) => {
 
 
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`App listening on port ${port}`);
 });
